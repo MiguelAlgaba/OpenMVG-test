@@ -50,6 +50,8 @@ double NullspaceRatio(TMat *A, TVec *nullspace) {
   if (A->rows() >= A->cols()) {
     Eigen::JacobiSVD<TMat> svd(*A, Eigen::ComputeFullV);
     (*nullspace) = svd.matrixV().col(A->cols()-1);
+std::cout<<"smaller singular value: "<< svd.singularValues()(A->cols()-2) << std::endl;
+std::cout<<"larger singular value: "<< svd.singularValues()(0) << std::endl;
     return svd.singularValues()(A->cols()-2) / svd.singularValues()(0);
   }
   // Extend A with rows of zeros to make it square. It's a hack, but is

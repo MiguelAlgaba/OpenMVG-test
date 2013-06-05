@@ -80,6 +80,8 @@ class Kernel {
   void Fit(const vector<size_t> &samples, vector<Model> *models) const {
     Mat x1 = ExtractColumns(x1_, samples),
         x2 = ExtractColumns(x2_, samples);
+std::cout<<"x1: "<<std::endl<<x1<<std::endl;
+std::cout<<"x2: "<<std::endl<<x2<<std::endl;
     Solver::Solve(x1, x2, models);
   }
   /// Return the error associated to the model and sample^nth point
