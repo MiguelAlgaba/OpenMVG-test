@@ -138,6 +138,7 @@ void SixPointResectionSolver::Solve(
   if (bcheck) {
     if (ratio > 1e-5) //Assert that at least only one solution if found by SVD
     {
+      std::cout<<"ratio: "<<ratio<<std::endl;
       Mat34 P = Map<Mat>(p.data(),4,3).transpose();
       P = P * translationMatrix;
       P /= P(2,3);
