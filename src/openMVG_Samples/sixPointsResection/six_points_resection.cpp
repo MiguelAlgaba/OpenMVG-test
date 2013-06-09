@@ -6,7 +6,7 @@
 #include "openMVG/multiview/solver_resection_kernel.hpp"
 
 int read3DPoints(const std::string & points3DFileName,
-                           openMVG::Mat3X & points3D)
+                           openMVG::Mat & points3D)
 {
   std::vector<openMVG::Vec3> points3D_aux;
 
@@ -42,7 +42,7 @@ int read3DPoints(const std::string & points3DFileName,
 }
 
 int read2DPoints(const std::string & projections2DFileName,
-                           openMVG::Mat2X & points2D)
+                           openMVG::Mat & points2D)
 {
     std::vector<openMVG::Vec2> points2D_aux;
 
@@ -115,9 +115,9 @@ int main(int argc, char *argv[])
     std::cout<<"Usage: "<< argv[0] << " <points2D> <points3D>" << std::endl;
     return EXIT_FAILURE;
   }
-  openMVG::Mat2X x;
+  openMVG::Mat x;
   read2DPoints(argv[1],x);
-  openMVG::Mat3X X;
+  openMVG::Mat X;
   read3DPoints(argv[2],X);
 
   std::cout<< "x: " << std::endl << x << std::endl;
